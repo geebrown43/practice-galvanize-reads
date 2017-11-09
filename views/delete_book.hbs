@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <section class="books">
+        <form method="POST" action="/books/{{book.id}}?_method=DELETE">
+            <div class="book"></div>
+                <figure>
+                    <img src="{{book.url}}" alt="{{book.title}} book cover">
+                </figure>
+                <div>
+                    <h3>{{book.title}}</h3>
+                    <span class="genre">{{book.genre}}</span>
+                    <p>{{book.description}}</p>
+                </div>
+            
+            <input type="submit" class="delete" value="Delete {{book.title}}">
+        </form>            
+    </section>
+</body>
+</html>
