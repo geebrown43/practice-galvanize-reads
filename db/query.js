@@ -20,9 +20,24 @@ findBooktoDelete = id => {
 deleteBook = id => {
     return db('books').where('id',id).del()
 }
+
+findBooktoEdit = id => {
+    return db('books').where('id', id)
+}
+
+updateBook = (body,id) => {
+    return db('books').update({
+        title: body.title,
+        genre: body.genre,
+        description: body.description,
+        url: body.url
+    }).where('id', id)
+}
 module.exports = {
     getAllBooks,
     postNewBook,
     findBooktoDelete,
-    deleteBook
+    deleteBook,
+    findBooktoEdit,
+    updateBook
 }

@@ -19,6 +19,23 @@ router.get('/delete/:id', (req, res) => {
     .then(books => res.render('delete_book', {
         book: books[0]
     }))
+})  
+
+router.get('/edit/:id', (req, res) => {
+    let id = req.params.id
+    db.findBooktoEdit(id)
+    .then(books => res.render('edit_book', {
+        book: books[0]
+    }))
+})
+
+router.put('/:id', (req, res) => {
+    let id = req.params.id
+    let body = req.body
+    db.updateBook(book, id)
+    .then(() => {
+        res.redirect('/books')
+    })
 })
 
 router.post('/', (req, res) => {
